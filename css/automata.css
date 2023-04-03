@@ -1,0 +1,15 @@
+.containerAutomata{
+    background: #F6F1F1;
+    width: 70%;
+    height: 100vh;
+    text-align: center;
+}
+.tittleAutomata{
+    height: 15%;
+    margin-top: 40px;
+    width: 100%;
+}
+.graficoAutomata{
+    height: 93%;
+    width: 100%;
+}
