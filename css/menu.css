@@ -108,6 +108,8 @@
     width: 100%;
 }
 
+/*************IMG*****************/
+
 .respuestaMenu{
     height: 60%;
     width: 100%;
@@ -123,8 +125,57 @@
     transform: scale(4);
     animation:linear infinite 3s cubo;
     opacity: 1;
-
 }
+
+/**************Form*******************/
+
+
+form{
+    height: 90%;
+    width: 90%;
+    background: #092f41;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+form > h1{
+    font-size: 1.5rem;
+}
+.formText{
+    width: 100%;
+    outline: none;
+    height: 30px;
+    border: none;
+    padding: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.formRango{
+    height: 20px;
+    width: 100%;
+    cursor: pointer;
+}
+.formSubmit{
+    height: 30px;
+    width: 100%;
+    background: #19A7CE;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: linear .4s;
+}
+.formSubmit:hover{
+    background: #57c3f5;
+}
+
+
+
+
 @keyframes cubo {
     0%{
         opacity: 1;

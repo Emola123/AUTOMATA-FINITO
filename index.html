@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/automata.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/load.css">
-    <script defer src=""></script>
+    <script defer src="js/index.js"></script>
     <title>Automata-Finito</title>
 </head>
 <body>
@@ -37,16 +37,22 @@
             </div>
         </div>
         <div class="containerMenu">
-            <button type="submit">Insertar palabra</button>
+            <button type="submit" id="insertarPalabra">Insertar palabra</button>
             <button type="submit">Historial</button>
         </div>
         <div class="respuestaMenu">
-            <img src="icons/codesandbox.svg" alt="">
+            <img src="icons/codesandbox.svg" id="cuboIcon" class="" alt="">
+            <form action="" id="form" class="oculto">
+                <h1>Insertar Palabra</h1>
+                <input class="formText" id="formText" type="text" required autocomplete="off">
+                <input class="formRango" id="formRango" type="range" min="0" max="100">
+                <input class="formSubmit" id="formSubmit" type="submit" value="Provar Palabra">
+            </form>
         </div>
     </section>
-    <section class="oculto" id="load">
-        <div class="oculto"></div>
-        <h3 class="oculto">Loading...</h3>
+    <section class="load" id="load">
+        <div class="circle" id="circle"></div>
+        <h3 class="" id="textLoad">Loading...</h3>
     </section>
     <footer>
 
