@@ -5,27 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,500&family=Sono:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,500&family=Sono:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-1234567890abcdefghijklmnopqrstuvwxyz" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/fotmat.css">
     <link rel="stylesheet" href="css/automata.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/load.css">
     <script defer src="js/index.js"></script>
+    <script src="https://unpkg.com/gojs/release/go.js"></script>
     <title>Automata-Finito</title>
 </head>
 <body>
     <main class="containerAutomata">
-        <h1 class="titlleAutomata">Automata-Finito</h1>
-        <div class="graficoAutomata"></div>
+        <h1 class="titlleAutomata">Autómata Finito Determinista</h1>
+        <div class="graficoAutomata" id="myDiagramDiv"></div>
     </main>
     <section class="Menu">
         <div class="headerMenu">
-            <h1 class="tittleMenu">Menu Automata</h1>
+            <h1 class="tittleMenu">Menú Autómata</h1>
             <div class="containerOpcionMenu">
                 <div class="dropdown">
-				<button class="dropbtn">Idioma <span class="icon">&#9660;</span></button>
+				<button class="dropbtn">Idioma<span class="icon">&#9660;</span></button>
 				<div class="dropdown-content">
 					<a class="items" href="#">Español</a>
 					<a class="items" href="#">English</a>
@@ -40,16 +41,17 @@
             </div>
         </div>
         <div class="containerMenu">
-            <button type="submit" id="insertarPalabra">Insertar palabra</button>
+            <button type="submit" id="insertarPalabra">Validar Palabra</button>
             <button type="submit">Historial</button>
         </div>
         <div class="respuestaMenu">
             <img src="icons/codesandbox.svg" id="cuboIcon" class="" alt="">
             <form action="" id="form" class="oculto">
-                <h1>Insertar Palabra</h1>
-                <input class="formText" id="formText" type="text" required autocomplete="off">
-                <input class="formRango" id="formRango" type="range" min="0" max="100">
-                <input class="formSubmit" id="formSubmit" type="submit" value="Provar Palabra">
+                <h1>Validación de Palabras</h1>
+                <input class="formText" id="formText" type="text" required autocomplete="off" placeholder="Ingrese la palabra a verificar">
+                <p>Velocidad: <span id="valorRango"></span></p>
+                <input class="formRango" id="formRango" type="range" min="0" max="100"onchange="mostrarValorRango()" oninput="mostrarValorRango()">
+                <input class="formSubmit" id="formSubmit" type="submit" value="Comprobar palabra">
             </form>
         </div>
     </section>
@@ -60,5 +62,6 @@
     <footer>
 
     </footer>
+    <script src="./js/automata.js"></script>
 </body>
 </html>

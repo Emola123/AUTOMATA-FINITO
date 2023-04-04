@@ -17,3 +17,15 @@ activarForm.addEventListener('click',()=>{
     cuboIcon.classList.add('oculto')
     form.classList.remove('oculto')
 })
+
+document.addEventListener("DOMContentLoaded", function() {
+    var rango = document.getElementById("formRango");
+    var valor = document.getElementById("valorRango");
+    valor.innerHTML = rango.value;
+});
+
+function mostrarValorRango() {
+    var rango = document.getElementById("formRango");
+    var valor = document.getElementById("valorRango");
+    valor.innerHTML = rango.value;
+  }
