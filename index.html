@@ -21,9 +21,22 @@
         <div class="graficoAutomata"></div>
     </main>
     <section class="Menu">
-        <h1>Menu Automata</h1>
+        <div class="headerMenu">
+            <h1 class="tittleMenu">Menu Automata</h1>
+            <div class="containerOpcionMenu">
+                <select id="idioma" class="idiomas" name="Idiomas" >
+                    <option value="" selected>Idioma</option>
+                    <option value="Español">Español</option>
+                    <option value="Ingles">Ingles</option>
+                    <option value="Aleman">Aleman</option>
+                </select>
+                <input type="checkbox" name="" id="clickDarkMode" class="clickDarkMode">
+                <label for="clickDarkMode">
+                    <div class="DarkMode"></div>
+                </label>
+            </div>
+        </div>
         <div class="containerMenu">
-            <button type="submit">Cambio de Idioma</button>
             <button type="submit">Insertar palabra</button>
             <button type="submit">Historial</button>
         </div>

@@ -9,10 +9,69 @@
     flex-direction: column;
     height: 100vh;
 }
-.Menu>h1{
+.headerMenu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 10px;
+}
+
+.tittleMenu{
     font-size: 1.7rem;
+    margin-top: 5px;
     cursor: pointer;
 }
+.containerOpcionMenu{
+    position: absolute;
+    right: 0%;
+    top: -30%;
+    display: flex;
+    gap: 10px;
+    outline: none;
+}
+.clickDarkMode{
+    display: none;
+}
+.idiomas{
+    height: 20px;
+    width: 70px;
+    font-family: 'Courier New', Courier, monospace;
+    border: none;
+    border-radius: 10px;
+}
+.DarkMode{
+    height: 20px;
+    width: 40px;
+    background: white;
+    border-radius: 10px;
+    position: relative;
+    transition: linear .6s;
+    cursor: pointer;
+}
+.clickDarkMode:checked +label>.DarkMode{
+    background-color:#092f41;
+    transition: linear 1.2s;
+    border: 1px solid white;
+}
+.clickDarkMode:checked +label>.DarkMode::after{
+    background-color:#146C94;
+    left: 0%;
+    transition: linear 1.2s;
+}
+
+.DarkMode::after{
+    content: '';
+    height: 18px;
+    width: 18px;
+    background: #19A7CE;
+    position: absolute;
+    border-radius: 50%;
+    transition: linear 1.2s;
+}
+
+
+
 .containerMenu{
     display: flex;
     flex-direction: column;
