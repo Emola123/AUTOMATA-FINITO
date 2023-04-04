@@ -1,0 +1,236 @@
+.Menu{
+    background: #19A7CE;
+    text-align: center;
+    padding: 20px;
+    width: 40%;
+    color: white;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.headerMenu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 10px;
+}
+
+.tittleMenu{
+    font-size: 1.7rem;
+    margin-top: 5px;
+    cursor: pointer;
+}
+.containerOpcionMenu{
+    position: absolute;
+    right: 0%;
+    top: -30%;
+    display: flex;
+    gap: 10px;
+    outline: none;
+}
+.clickDarkMode{
+    display: none;
+}
+.idiomas{
+    height: 20px;
+    width: 70px;
+    font-family: 'Courier New', Courier, monospace;
+    border: none;
+    border-radius: 10px;
+}
+.DarkMode{
+    height: 20px;
+    width: 40px;
+    background: white;
+    border-radius: 10px;
+    position: relative;
+    transition: linear .6s;
+    cursor: pointer;
+}
+.clickDarkMode:checked +label>.DarkMode{
+    background-color:#092f41;
+    transition: linear 1.2s;
+    border: 1px solid white;
+}
+.clickDarkMode:checked +label>.DarkMode::after{
+    background-color:#146C94;
+    left: 0%;
+    transition: linear 1.2s;
+}
+
+.DarkMode::after{
+    content: '';
+    height: 18px;
+    width: 18px;
+    background: #19A7CE;
+    position: absolute;
+    border-radius: 50%;
+    transition: linear 1.2s;
+}
+
+
+
+.containerMenu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    height: 30%;
+}
+.containerMenu >button{
+    width: 100%;
+    height: 40px;
+    cursor: pointer;
+    border: none;
+    font-size: 1.2rem;
+    color: #146C94;
+    transition: linear .4s;
+    position: relative;
+
+}
+.containerMenu > button::before{
+    content: '';
+    position: absolute;
+    background-color: #1da0dd;
+    height: 100%;
+    width: 0%;
+    left: 0%;
+    top: 0%;
+    transition: linear .2s;
+    opacity: .2;
+}
+
+.containerMenu >button:hover:before{
+    width: 100%;
+}
+
+/*************IMG*****************/
+
+.respuestaMenu{
+    height: 60%;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.respuestaMenu>img{
+    filter: invert();
+    transform: scale(4);
+    animation:linear infinite 3s cubo;
+    opacity: 1;
+}
+
+/**************Form*******************/
+
+
+form{
+    height: 90%;
+    width: 90%;
+    background: #092f41;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+form > h1{
+    font-size: 1.5rem;
+}
+.formText{
+    width: 100%;
+    outline: none;
+    height: 30px;
+    border: none;
+    padding: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.formRango{
+    height: 20px;
+    width: 100%;
+    cursor: pointer;
+}
+.formSubmit{
+    height: 30px;
+    width: 100%;
+    background: #19A7CE;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: linear .4s;
+}
+.formSubmit:hover{
+    background: #57c3f5;
+}
+
+
+
+
+@keyframes cubo {
+    0%{
+        opacity: 1;
+        rotate: 0deg;
+    }
+    50%{
+        opacity: 0;
+        rotate: 180deg;
+    }
+    100%{
+        opacity: 1;
+        rotate: 360deg;
+    }
+}
+
+.oculto{
+    display: none;
+}
+
+.dropdown {
+	justify-content: end;
+    align-items: end;
+    width: 100px;
+}
+.dropbtn {
+	background-color: #1da0dd;
+	color: white;
+	font-size: 15px;
+	border: none;
+	cursor: pointer;
+  position: relative; /* agregar posición relativa para el icono */
+  display: inline-block;
+  white-space: nowrap;
+}
+
+
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	z-index: 1;
+}
+
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+    background-color: white;
+}
+
+.items:hover{
+    background-color: #57c3f5;
+}
