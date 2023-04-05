@@ -17,3 +17,23 @@ activarForm.addEventListener('click',()=>{
     cuboIcon.classList.add('oculto')
     form.classList.remove('oculto')
 })
+
+const darkMode = document.getElementById('clickDarkMode');
+darkMode.addEventListener('change', (event)=>{
+    document.body.classList.toggle('dark');
+});
+
+const menu = document.querySelector(".Menu");
+const checkbox = document.querySelector(".clickDarkMode");
+checkbox.addEventListener("change", function() {
+  
+});
+if (checkbox.checked) {
+    menu.classList.add("dark-mode");
+  } else {
+    menu.classList.remove("dark-mode");
+}
+  
+
+
+
