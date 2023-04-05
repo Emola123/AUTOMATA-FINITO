@@ -18,19 +18,19 @@
 </head>
 <body>
     <main class="containerAutomata">
-        <h1 class="titlleAutomata">Autómata Finito Determinista</h1>
+        <h1 class="titlleAutomata" id="title"></h1>
         <div class="graficoAutomata" id="myDiagramDiv"></div>
     </main>
     <section class="Menu">
         <div class="headerMenu">
-            <h1 class="tittleMenu">Menú Autómata</h1>
+            <h1 class="tittleMenu" id="title-menu"></h1>
             <div class="containerOpcionMenu">
                 <div class="dropdown">
-				<button class="dropbtn">Idioma<span class="icon">&#9660;</span></button>
+				<button class="dropbtn" id="idioma"><span class ="icon">&#9660;</span></button>
 				<div class="dropdown-content">
-					<a class="items" href="#">Español</a>
-					<a class="items" href="#">English</a>
-					<a class="items" href="#">Français</a>
+					<a class="items" href="#" data-lang="es">Español</a>
+					<a class="items" href="#" data-lang="en">English</a>
+					<a class="items" href="#" data-lang="fr">Français</a>
 				</div>
 			</div>
                 
@@ -41,23 +41,28 @@
             </div>
         </div>
         <div class="containerMenu">
-            <button type="submit" id="insertarPalabra">Validar Palabra</button>
-            <button type="submit">Historial</button>
+            <button type="submit" id="insertarPalabra"></button>
+            <button type="submit" id="history"></button>
         </div>
         <div class="respuestaMenu">
             <img src="icons/codesandbox.svg" id="cuboIcon" class="" alt="">
             <form action="" id="form" class="oculto">
-                <h1>Validación de Palabras</h1>
+                <h1 id="title-form"></h1>
                 <input class="formText" id="formText" type="text" required autocomplete="off" placeholder="Ingrese la palabra a verificar">
-                <p>Velocidad: <span id="valorRango"></span></p>
+                <div class="velocity-con">
+                    <p id="velocity"></p>
+                    <p>
+                        <span id="valorRango"></span>
+                    </p>
+                </div>
                 <input class="formRango" id="formRango" type="range" min="0" max="100"onchange="mostrarValorRango()" oninput="mostrarValorRango()">
-                <input class="formSubmit" id="formSubmit" type="submit" value="Comprobar palabra">
+                <button class="formSubmit" id="formSubmit" type="submit"></button>
             </form>
         </div>
     </section>
     <section class="load" id="load">
         <div class="circle" id="circle"></div>
-        <h3 class="" id="textLoad">Loading...</h3>
+        <h3 class="" id="textLoad"></h3>
     </section>
     <footer>
 

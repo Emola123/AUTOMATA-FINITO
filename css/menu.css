@@ -235,3 +235,7 @@ form > h1{
     background-color: #57c3f5;
 }
 
+.velocity-con{
+    display: flex;
+}
+

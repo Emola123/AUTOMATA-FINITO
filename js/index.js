@@ -25,7 +25,55 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function mostrarValorRango() {
-    var rango = document.getElementById("formRango");
-    var valor = document.getElementById("valorRango");
-    valor.innerHTML = rango.value;
+  var rango = document.getElementById("formRango");
+  var valor = document.getElementById("valorRango");
+  valor.textContent = rango.value;
+}
+
+
+  loadTranslation('es');
+
+const items = document.querySelectorAll('.items');
+const dropdownContent = document.querySelector('.dropdown-content');
+
+
+function loadTranslation(lang) {
+    fetch(`idiomas/${lang}.txt`)
+      .then(response => response.text())
+      .then(data => {
+        console.log(data)
+        const translations = data.split('\n');
+        translations.forEach(translation => {
+        const [key, value] = translation.trim().split(/\s*=\s*/);
+        const element = document.getElementById(key);
+        const elements = [element];
+          elements.forEach(element => {
+            element.textContent = value;
+          });
+        });
+      })
+      .catch(error => console.error(error));
   }
+  
+
+
+function highlightLanguage(item) {
+    items.forEach(item => {
+        item.classList.remove('active');
+    });
+    item.classList.add('active');
+}
+
+items.forEach(item => {
+    item.addEventListener('click', function(e) {
+        e.preventDefault();
+        const lang = this.dataset.lang;
+        loadTranslation(lang);
+        highlightLanguage(this);
+    });
+});
+
+
+document.getElementById('idioma').addEventListener('click', function() {
+    dropdownContent.classList.toggle('show');
+});
