@@ -1,4 +1,4 @@
-.Menu{
+.Menu {
     background: #19A7CE;
     text-align: center;
     padding: 20px;
@@ -9,7 +9,8 @@
     flex-direction: column;
     height: 100vh;
 }
-.headerMenu{
+
+.headerMenu {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,7 +18,7 @@
     padding: 10px;
 }
 
-.tittleMenu{
+.tittleMenu {
     font-size: 1.7rem;
     margin-top: 5px;
     cursor: pointer;
@@ -39,8 +40,11 @@
     font-family: 'Courier New', Courier, monospace;
     border: none;
     border-radius: 10px;
+    position: absolute;
+    left: -135px;
+    top: 10px;
 }
-.DarkMode{
+.DarkMode {
     height: 20px;
     width: 40px;
     background: white;
@@ -69,8 +73,16 @@
     border-radius: 50%;
     transition: linear 1.2s;
 }
-
-
+#label_toggle{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.dark{
+    background-color: #333;
+    color: white;
+    transition: all .5s ease;
+}
 
 .containerMenu{
     display: flex;
@@ -172,9 +184,6 @@ form > h1{
 .formSubmit:hover{
     background: #57c3f5;
 }
-
-
-
 
 @keyframes cubo {
     0%{
