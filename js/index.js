@@ -31,17 +31,16 @@ function mostrarValorRango() {
 }
 
 
-  loadTranslation('es');
+loadTranslation('es');
 
 const items = document.querySelectorAll('.items');
 const dropdownContent = document.querySelector('.dropdown-content');
 
-
+ 
 function loadTranslation(lang) {
     fetch(`idiomas/${lang}.txt`)
       .then(response => response.text())
       .then(data => {
-        console.log(data)
         const translations = data.split('\n');
         translations.forEach(translation => {
         const [key, value] = translation.trim().split(/\s*=\s*/);
@@ -50,10 +49,10 @@ function loadTranslation(lang) {
           elements.forEach(element => {
             element.textContent = value;
           });
-        });
-      })
-      .catch(error => console.error(error));
-  }
+        }); 
+    })
+    .catch(error => console.error(error));
+}
   
 
 

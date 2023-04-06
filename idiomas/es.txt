@@ -7,4 +7,3 @@ title-form = Validación de Palabras
 velocity = Velocidad:
 textLoad = Cargando...
 formSubmit = Comprobar Palabra
-placeholder = Ingrese la palabra a verificar

@@ -7,4 +7,3 @@ title-form = Word Validation
 velocity = Velocity:
 textLoad = Loading...
 formSubmit = Check Word
-placeholder = Enter the word to verify

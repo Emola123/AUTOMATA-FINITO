@@ -1,3 +1,5 @@
+let diagram;
+
 window.onload = function init() {
         // Definir los datos del autómata
     var nodeDataArray = [
@@ -34,18 +36,24 @@ window.onload = function init() {
     
     
     
-    var diagram = $(go.Diagram, "myDiagramDiv", {
+    diagram = $(go.Diagram, "myDiagramDiv", {
     "undoManager.isEnabled": true
     });
     
     // Definir los nodos y las conexiones
     diagram.nodeTemplate =
     $(go.Node, "Auto", 
-    { width: 50, height: 50},
-    new go.Binding("location", "loc"),
-      $(go.Shape, "Ellipse", { fill: "white", stroke: "black", strokeWidth: 2  }),
+      { width: 50, height: 50},
+      new go.Binding("location", "loc"),
+      $(go.Shape, "Ellipse", { fill: "white", stroke: "black", strokeWidth: 2 }),
+      $(go.Panel, "Auto",
+        { visible: false },
+        new go.Binding("visible", "isAccept"),
+        $(go.Shape, "Circle", { fill: "null", width: 40, height: 40, strokeWidth: 2})
+      ),
       $(go.TextBlock, { margin: 5 }, new go.Binding("text", "text"))
     );
+  
     
     diagram.linkTemplate =
     $(go.Link,
@@ -68,4 +76,65 @@ window.onload = function init() {
     diagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
     diagram.isReadOnly = true;
     
+    
 }
+
+function recorrerAutomata() {
+    var inputWord = document.getElementById("formText").value;
+    var currentNode = diagram.findNodeForKey("0");
+      
+    diagram.links.each(function(link) {
+        link.path.stroke = "black";
+      });
+    
+    for (var i = 0; i < inputWord.length; i++) {
+      var nextNode = null;
+      var currentChar = inputWord.charAt(i);
+      
+      diagram.links.each(function(link) {
+        if (link.fromNode.data.key === currentNode.data.key && link.data.text === currentChar) {
+          nextNode = diagram.findNodeForKey(link.toNode.data.key);
+        }
+      });
+      
+      if (nextNode === null) {
+        alert("La palabra no es aceptada por el autómata.");
+        return;
+      }
+
+      
+      var link = null;
+    diagram.links.each(function(l) {
+      if (l.fromNode === currentNode && l.toNode === nextNode) {
+        link = l;
+        return false;
+      }
+    });
+    if (link === null) {
+      alert("La palabra no es aceptada por el autómata.");
+      return;
+    }
+    link.path.stroke = "red";
+    currentNode.findMainElement().stroke = "red";
+    currentNode.findMainElement().fill = "gray";
+      
+      currentNode = nextNode;
+    }
+
+    
+    
+    if (currentNode.data.isAccept) {
+      alert("La palabra es aceptada por el autómata.");
+    } else {
+      alert("La palabra no es aceptada por el autómata.");
+    }
+
+    // Cambiar el color del borde del nodo actual
+    currentNode.findMainElement().stroke = "red";
+    currentNode.findMainElement().fill = "yellow";
+
+
+
+    
+  }
+  
