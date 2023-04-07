@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="css/automata.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/load.css">
+    <link rel="stylesheet" href="css/modal.css">
     <script defer src="js/index.js"></script>
+    <script defer src="./js/automata.js"></script>
     <script src="https://unpkg.com/gojs/release/go.js"></script>
     <title>Autómata Finito</title>
 </head>
@@ -55,7 +57,7 @@
                     </p>
                 </div>
                 <input class="formRango" id="formRango" type="range" min="0" max="100"onchange="mostrarValorRango()" oninput="mostrarValorRango()">
-                <button class="formSubmit" id="formSubmit" type="submit" onclick="recorrerAutomata()"></button>
+                <button class="formSubmit" id="formSubmit" type="submit"></button>
             </form>
         </div>
     </section>
@@ -63,9 +65,16 @@
         <div class="circle" id="circle"></div>
         <h3 class="" id="textLoad"></h3>
     </section>
+    <section class="oculto" id="modal">
+        <div class="modal">
+            <img src="icons/aceptar.png" id="aceptadoModal" class="oculto" alt="aceptado">
+            <img src="icons/boton-eliminar.png" id="noAceptadoModal" class="oculto" alt="noAceptado">
+            <h2 class="mensajeModal" id="textModal"></h2>
+            <input type="button" value="Aceptar" class="buttonModal" id="botonModal">
+        </div>
+    </section>
     <footer>
 
     </footer>
-    <script src="./js/automata.js"></script>
 </body>
 </html>

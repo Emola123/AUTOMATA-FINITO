@@ -1,6 +1,15 @@
+const botonForm = document.getElementById('formSubmit')
+
+const modal = document.getElementById('modal')
+const textModal = document.getElementById('textModal')
+const aceptadoModal = document.getElementById('aceptadoModal')
+const noAceptadoModal = document.getElementById('noAceptadoModal')
+const botonModal = document.getElementById('botonModal')
+
 let diagram;
 
 window.onload = function init() {
+  
         // Definir los datos del autómata
     var nodeDataArray = [
         { key: "0", text: "q0", loc: new go.Point(-100, 0)},
@@ -79,7 +88,10 @@ window.onload = function init() {
     
 }
 
-function recorrerAutomata() {
+botonForm.addEventListener('click',(evento)=>recorrerAutomata(evento))
+
+function recorrerAutomata(evento) {
+    evento.preventDefault();
     var inputWord = document.getElementById("formText").value;
     var currentNode = diagram.findNodeForKey("0");
       
@@ -98,10 +110,9 @@ function recorrerAutomata() {
       });
       
       if (nextNode === null) {
-        alert("La palabra no es aceptada por el autómata.");
+      mostrarModal(false);
         return;
       }
-
       
       var link = null;
     diagram.links.each(function(l) {
@@ -111,7 +122,7 @@ function recorrerAutomata() {
       }
     });
     if (link === null) {
-      alert("La palabra no es aceptada por el autómata.");
+      mostrarModal(false);
       return;
     }
     link.path.stroke = "red";
@@ -124,17 +135,41 @@ function recorrerAutomata() {
     
     
     if (currentNode.data.isAccept) {
-      alert("La palabra es aceptada por el autómata.");
+      mostrarModal(true);
     } else {
-      alert("La palabra no es aceptada por el autómata.");
+      mostrarModal(false);
     }
 
     // Cambiar el color del borde del nodo actual
     currentNode.findMainElement().stroke = "red";
     currentNode.findMainElement().fill = "yellow";
-
-
-
-    
   }
+
+function mostrarModal(Aceptado){
+  modal.classList.remove('oculto')
+  modal.classList.add('containerModal')
+  mostrarResultado(Aceptado);
+}
+
+function mostrarResultado(Aceptado){
+  if(Aceptado){
+    textModal.textContent = 'Palabra Aceptada'
+    aceptadoModal.classList.remove('oculto')
+    aceptadoModal.classList.add('aceptada')
+  }else{
+    textModal.textContent = 'Palabra no Aceptada'
+    noAceptadoModal.classList.remove('oculto')
+    noAceptadoModal.classList.add('noAceptada')
+  }
+}
   
+botonModal.addEventListener('click',()=>{
+  modal.classList.add('oculto')
+  modal.classList.remove('containerModal')
+
+  aceptadoModal.classList.remove('aceptado')
+  noAceptadoModal.classList.remove('noAceptada')
+
+  aceptadoModal.classList.add('oculto')
+  noAceptadoModal.classList.add('oculto')
+})
