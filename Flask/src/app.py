@@ -1,6 +1,7 @@
-from flask import Flask
+from flask import Flask,request
 from firebase_admin import credentials, initialize_app, db
 from firebase import firebase
+from flask_cors import CORS
 
 
 #credenciales y permisos para la base de datos
@@ -11,6 +12,7 @@ initialize_app(cred)
 
 # inicialización de la app de Flask
 app = Flask(__name__)
+CORS(app)
 
 # inicialización de la instancia de Firebase
 firebase = firebase.FirebaseApplication('https://automata-fb3f1-default-rtdb.firebaseio.com/', None)
@@ -23,9 +25,15 @@ nuevo_objeto = {
     'Estado':'Aceptado'
 }
 
-#obtener la referencia de la tabla o coleccion
-referencia = db.reference('Palabras')
-referencia.push(nuevo_objeto)
+
+
+
+@app.route('/ruta_de_flask', methods=['POST'])
+def recibir_datos():    
+    palabra = request.form.get('palabra')
+    print(palabra)
+    return 'Datos recibidos correctamente'
+
 
 # ruta de ejemplo para obtener datos de Firebase
 @app.route('/Palabras')
@@ -36,12 +44,8 @@ def obtener_datos():
     else:
         return datos
 
-@app.route('/prueba')
-def prueba():
-    return 'hola'
-
 
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5001)

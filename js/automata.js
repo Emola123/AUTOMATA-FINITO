@@ -178,7 +178,7 @@ botonModal.addEventListener('click',()=>{
 })
 
 
-const Palabras={
+const Palabra={
     'Palabra':'',
     'Estado':''
 }
@@ -187,13 +187,24 @@ formText.addEventListener('input',(valor)=>guardarPalabra(valor))
 
 function guardarPalabra(valor){
     const palabra = valor.target.value;
-    Palabras.Palabra=palabra;
+    Palabra.Palabra=palabra;
 }
 function guardarEstado(Estado){
     if(Estado){
-      Palabras.Estado='Aceptado';
+      Palabra.Estado='Aceptado';
     }else{
-      Palabras.Estado='No Aceptado';
+      Palabra.Estado='No Aceptado';
     }
-    console.log(JSON.stringify(Palabras))
+    console.log(JSON.stringify(Palabra))
+    enviarDatos()
+}
+
+function enviarDatos(){
+  fetch('http://localhost:5001/ruta_de_flask', {
+    method: 'POST',
+    body: JSON.stringify({palabra: Palabra}),
+    headers: {'Content-Type': 'application/json'}
+  })
+  .then(response => response.json())
+  .then(data => console.log(data))
 }
