@@ -5,54 +5,73 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,500&family=Sono:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-1234567890abcdefghijklmnopqrstuvwxyz" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,500&family=Sono:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/fotmat.css">
     <link rel="stylesheet" href="css/automata.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/load.css">
+    <link rel="stylesheet" href="css/modal.css">
     <script defer src="js/index.js"></script>
-    <title>Automata-Finito</title>
+    <script defer src="./js/automata.js"></script>
+    <script src="https://unpkg.com/gojs/release/go.js"></script>
+    <title>Autómata Finito</title>
 </head>
-<body>
+<body class="body">
     <main class="containerAutomata">
-        <h1 class="titlleAutomata">Automata-Finito</h1>
-        <div class="graficoAutomata"></div>
+        <h1 class="titlleAutomata" id="title"></h1>
+        <div class="graficoAutomata" id="myDiagramDiv"></div>
     </main>
     <section class="Menu">
         <div class="headerMenu">
-            <h1 class="tittleMenu">Menu Automata</h1>
+            <h1 class="tittleMenu" id="title-menu"></h1>
             <div class="containerOpcionMenu">
-                <select id="idioma" class="idiomas" name="Idiomas" >
-                    <option value="" selected>Idioma</option>
-                    <option value="Español">Español</option>
-                    <option value="Ingles">Ingles</option>
-                    <option value="Aleman">Aleman</option>
-                </select>
+                <div class="dropdown">
+				<button class="dropbtn" id="idioma"><span class ="icon">&#9660;</span></button>
+				<div class="dropdown-content">
+					<a class="items" href="#" data-lang="es">Español</a>
+					<a class="items" href="#" data-lang="en">English</a>
+					<a class="items" href="#" data-lang="fr">Français</a>
+				</div>
+			</div>
+                
                 <input type="checkbox" name="" id="clickDarkMode" class="clickDarkMode">
                 <label for="clickDarkMode">
                     <div class="DarkMode"></div>
                 </label>
             </div>
         </div>
-        <div class="containerMenu">
-            <button type="submit" id="insertarPalabra">Insertar palabra</button>
-            <button type="submit">Historial</button>
+        <div class="containerMenu" >
+            <button type="submit" id="insertarPalabra"></button>
+            <button type="submit" id="history"></button>
         </div>
         <div class="respuestaMenu">
             <img src="icons/codesandbox.svg" id="cuboIcon" class="" alt="">
             <form action="" id="form" class="oculto">
-                <h1>Insertar Palabra</h1>
-                <input class="formText" id="formText" type="text" required autocomplete="off">
-                <input class="formRango" id="formRango" type="range" min="0" max="100">
-                <input class="formSubmit" id="formSubmit" type="submit" value="Provar Palabra">
+                <h1 id="title-form"></h1>
+                <input class="formText" id="formText" type="text" required autocomplete="off" placeholder="Ingrese la palabra a verificar">
+                <div class="velocity-con">
+                    <p id="velocity"></p>
+                    <p>
+                        <span id="valorRango"></span>
+                    </p>
+                </div>
+                <input class="formRango" id="formRango" type="range" min="0" max="100"onchange="mostrarValorRango()" oninput="mostrarValorRango()">
+                <button class="formSubmit" id="formSubmit" type="submit"></button>
             </form>
         </div>
     </section>
     <section class="load" id="load">
         <div class="circle" id="circle"></div>
-        <h3 class="" id="textLoad">Loading...</h3>
+        <h3 class="" id="textLoad"></h3>
+    </section>
+    <section class="oculto" id="modal">
+        <div class="modal">
+            <img src="icons/aceptar.png" id="aceptadoModal" class="oculto" alt="aceptado">
+            <img src="icons/boton-eliminar.png" id="noAceptadoModal" class="oculto" alt="noAceptado">
+            <h2 class="mensajeModal" id="textModal"></h2>
+            <input type="button" value="Aceptar" class="buttonModal" id="botonModal">
+        </div>
     </section>
     <footer>
 
