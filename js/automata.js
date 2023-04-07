@@ -1,4 +1,5 @@
 const botonForm = document.getElementById('formSubmit')
+const formText = document.getElementById('formText')
 
 const modal = document.getElementById('modal')
 const textModal = document.getElementById('textModal')
@@ -156,10 +157,12 @@ function mostrarResultado(Aceptado){
     textModal.textContent = 'Palabra Aceptada'
     aceptadoModal.classList.remove('oculto')
     aceptadoModal.classList.add('aceptada')
+    guardarEstado(true)
   }else{
     textModal.textContent = 'Palabra no Aceptada'
     noAceptadoModal.classList.remove('oculto')
     noAceptadoModal.classList.add('noAceptada')
+    guardarEstado(false)
   }
 }
   
@@ -173,3 +176,24 @@ botonModal.addEventListener('click',()=>{
   aceptadoModal.classList.add('oculto')
   noAceptadoModal.classList.add('oculto')
 })
+
+
+const Palabras={
+    'Palabra':'',
+    'Estado':''
+}
+
+formText.addEventListener('input',(valor)=>guardarPalabra(valor))
+
+function guardarPalabra(valor){
+    const palabra = valor.target.value;
+    Palabras.Palabra=palabra;
+}
+function guardarEstado(Estado){
+    if(Estado){
+      Palabras.Estado='Aceptado';
+    }else{
+      Palabras.Estado='No Aceptado';
+    }
+    console.log(JSON.stringify(Palabras))
+}
