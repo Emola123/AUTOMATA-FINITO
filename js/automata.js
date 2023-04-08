@@ -200,11 +200,11 @@ function guardarEstado(Estado){
 }
 
 function enviarDatos(){
-  fetch('http://localhost:5001/ruta_de_flask', {
+  fetch('http://localhost:5000/ruta_de_flask', {
     method: 'POST',
     body: JSON.stringify({palabra: Palabra}),
     headers: {'Content-Type': 'application/json'}
   })
-  .then(response => response.json())
+  .then(response => response.text())
   .then(data => console.log(data))
 }

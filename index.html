@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,500&family=Sono:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,500&family=Sono:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/fotmat.css">
     <link rel="stylesheet" href="css/automata.css">
     <link rel="stylesheet" href="css/menu.css">
@@ -17,6 +20,7 @@
     <script defer src="https://unpkg.com/gojs/release/go.js"></script>
     <title>Autómata Finito</title>
 </head>
+
 <body>
     <main class="containerAutomata">
         <h1 class="titlleAutomata" id="title"></h1>
@@ -27,14 +31,14 @@
             <h1 class="tittleMenu" id="title-menu"></h1>
             <div class="containerOpcionMenu">
                 <div class="dropdown">
-				<button class="dropbtn" id="idioma"><span class ="icon">&#9660;</span></button>
-				<div class="dropdown-content">
-					<a class="items" href="#" data-lang="es">Español</a>
-					<a class="items" href="#" data-lang="en">English</a>
-					<a class="items" href="#" data-lang="fr">Français</a>
-				</div>
-			</div>
-                
+                    <button class="dropbtn" id="idioma"><span class="icon">&#9660;</span></button>
+                    <div class="dropdown-content">
+                        <a class="items" href="#" data-lang="es">Español</a>
+                        <a class="items" href="#" data-lang="en">English</a>
+                        <a class="items" href="#" data-lang="fr">Français</a>
+                    </div>
+                </div>
+
                 <input type="checkbox" name="" id="clickDarkMode" class="clickDarkMode">
                 <label for="clickDarkMode">
                     <div class="DarkMode"></div>
@@ -49,14 +53,16 @@
             <img src="icons/codesandbox.svg" id="cuboIcon" class="" alt="">
             <form action="" id="form" class="oculto">
                 <h1 id="title-form"></h1>
-                <input class="formText" id="formText" type="text" required autocomplete="off" placeholder="Ingrese la palabra a verificar">
+                <input class="formText" id="formText" type="text" required autocomplete="off"
+                    placeholder="Ingrese la palabra a verificar">
                 <div class="velocity-con">
                     <p id="velocity"></p>
                     <p>
                         <span id="valorRango"></span>
                     </p>
                 </div>
-                <input class="formRango" id="formRango" type="range" min="0" max="100"onchange="mostrarValorRango()" oninput="mostrarValorRango()">
+                <input class="formRango" id="formRango" type="range" min="0" max="100" onchange="mostrarValorRango()"
+                    oninput="mostrarValorRango()">
                 <button class="formSubmit" id="formSubmit" type="submit"></button>
             </form>
         </div>
@@ -77,4 +83,5 @@
 
     </footer>
 </body>
+
 </html>
