@@ -206,9 +206,9 @@ form > h1{
 	font-size: 15px;
 	border: none;
 	cursor: pointer;
-  position: relative; /* agregar posición relativa para el icono */
-  display: inline-block;
-  white-space: nowrap;
+    position: relative; /* agregar posición relativa para el icono */
+    display: inline-block;
+    white-space: nowrap;
 }
 
 
@@ -239,3 +239,15 @@ form > h1{
     display: flex;
 }
 
+.containerHistorial{
+    height: 100%;
+    width: 90%;
+    background: #092f41;
+    border-radius: 20px;
+    display: flex;
+    overflow: scroll;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    justify-content: space-between;
+}

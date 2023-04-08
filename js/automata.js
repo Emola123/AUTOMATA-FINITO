@@ -1,6 +1,10 @@
 const botonForm = document.getElementById('formSubmit')
 const formText = document.getElementById('formText')
 
+const botonHistorial = document.getElementById('history')
+const formulario = document.getElementById('form')
+const historialContenedor = document.getElementById('historialContainer')
+
 const modal = document.getElementById('modal')
 const textModal = document.getElementById('textModal')
 const aceptadoModal = document.getElementById('aceptadoModal')
@@ -207,4 +211,18 @@ function enviarDatos(){
   })
   .then(response => response.text())
   .then(data => console.log(data))
+}
+
+botonHistorial.addEventListener('click',()=>{
+  ocultarForm();
+  mostrarDatos();
+})
+
+function ocultarForm(){
+  formulario.classList.add('oculto')
+}
+
+function mostrarDatos(){
+  historialContenedor.classList.remove('oculto')
+  historialContenedor.classList.add('containerHistorial')
 }

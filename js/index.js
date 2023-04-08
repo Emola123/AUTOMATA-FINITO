@@ -6,6 +6,7 @@ const activarForm = document.getElementById('insertarPalabra')
 const cuboIcon = document.getElementById('cuboIcon')
 const form = document.getElementById('form')
 
+
 window.addEventListener('load',()=>{
     setTimeout(()=>{
         containerLoader.classList.remove('load');
@@ -16,6 +17,9 @@ window.addEventListener('load',()=>{
 activarForm.addEventListener('click',()=>{
     cuboIcon.classList.add('oculto')
     form.classList.remove('oculto')
+    historialContenedor.classList.add('oculto')
+    historialContenedor.classList.remove('containerHistorial')
+
 })
 
 document.addEventListener("DOMContentLoaded", function() {
