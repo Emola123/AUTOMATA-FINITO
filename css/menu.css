@@ -245,7 +245,7 @@ form > h1{
     background: #092f41;
     border-radius: 20px;
     display: flex;
-    overflow: scroll;
+    overflow-y: scroll;
     flex-direction: column;
     padding: 20px;
     align-items: center;

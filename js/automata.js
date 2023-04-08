@@ -215,14 +215,23 @@ function enviarDatos(){
 
 botonHistorial.addEventListener('click',()=>{
   ocultarForm();
-  mostrarDatos();
+  mostrarDivHistorial();
+  obtenerDatos();
 })
 
 function ocultarForm(){
   formulario.classList.add('oculto')
 }
 
-function mostrarDatos(){
+function mostrarDivHistorial(){
   historialContenedor.classList.remove('oculto')
   historialContenedor.classList.add('containerHistorial')
+}
+
+function obtenerDatos(){
+  fetch('http://localhost:5000/Palabras')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data)
+  });
 }
