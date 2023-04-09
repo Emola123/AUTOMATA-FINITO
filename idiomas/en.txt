@@ -1,0 +1,9 @@
+title = Deterministic Finite Automata
+title-menu = Automata Menu
+idioma = Language
+insertarPalabra = Validate Word
+history = History
+title-form = Word Validation
+velocity = Velocity:
+textLoad = Loading...
+formSubmit = Check Word
