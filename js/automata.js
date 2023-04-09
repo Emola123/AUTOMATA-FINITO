@@ -173,3 +173,5 @@ botonModal.addEventListener('click',()=>{
   aceptadoModal.classList.add('oculto')
   noAceptadoModal.classList.add('oculto')
 })
+
+//Recorrido

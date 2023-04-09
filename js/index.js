@@ -88,15 +88,3 @@ darkMode.addEventListener('change', ()=>{
     dropbtn.classList.toggle('idiomaDark');
 });
 
-// Objeto JSON
-var data = { 
-    "nombre": "Juan",
-    "apellido": "Pérez",
-    "edad": 25
-  };
-  
-  // Petición AJAX
-  var xhttp = new XMLHttpRequest();
-  xhttp.open("POST", "/ruta-en-flask", true);
-  xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-  xhttp.send(JSON.stringify(data));
