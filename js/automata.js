@@ -293,6 +293,8 @@ function ocultarForm(){
 }
 
 function mostrarDivHistorial(){
+  const cuboIcon = document.getElementById('cuboIcon')
+  cuboIcon.classList.add('oculto');
   historialContenedor.classList.remove('oculto')
   historialContenedor.classList.add('containerHistorial')
 };

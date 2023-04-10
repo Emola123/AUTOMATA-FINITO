@@ -251,3 +251,9 @@ form > h1{
     align-items: center;
     justify-content: space-between;
 }
+
+table, th, td {
+    border: 1px solid #57c3f5;
+    border-collapse: collapse;
+    padding: 0 25px;
+  }
