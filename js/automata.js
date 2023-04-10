@@ -238,42 +238,45 @@ function obtenerDatos(){
   });
 }
 
-const obtenetIdiomaYFrase=(estado)=>{
-  let pa = document.getElementById('idioma');
-  if(estado){
-    switch(pa.textContent){
-      case 'Idioma':
-        return 'Palabra Aceptada'
-      case 'Languaje':
-        return 'word accepted'
-      case 'Langue':
-        return 'mot accepté'
-    }
-  }else{
-    switch(pa.textContent){
-      case 'Idioma':
-        frase = 'Palabra No Aceptada'
-        break;
-      case 'Languaje':
-        frase ='word not accepted'
-        break;
-      case 'Langue':
-        frase = 'mot non accepté'
-        break;
-    }
+const aceptadosFrases = {
+  'Idioma': 'Palabra Aceptada',
+  'Language': 'word accepted',
+  'langue': 'mot accepté'
+};
+
+const noAceptadosFrases = {
+  'Idioma': 'Palabra no Aceptada',
+  'Language': 'word not accepted',
+  'langue': 'mot no accepté'
+};
+
+function obtenerIdiomaYFrase(estado) {
+  const pa = document.getElementById('idioma').textContent;
+  let frase = '';
+  
+  if (estado) {
+    frase = aceptadosFrases[pa];
+  } else {
+    frase = noAceptadosFrases[pa];
   }
+  
+  return frase;
 }
 
+
+
 function audioAceptado(){
-  var frase = obtenetIdiomaYFrase(true)
+  var frase = obtenerIdiomaYFrase(true)
+  console.log('frase: '+frase)
   const mensaje = new SpeechSynthesisUtterance(frase);
   mensaje.pitch = -1;
   speechSynthesis.speak(mensaje);
 }
 
 function audioNoAceptado(){
-  var frase = obtenetIdiomaYFrase(false)
-  const mensaje = new SpeechSynthesisUtterance('Palabra No Aceptada');
+  var frase = obtenerIdiomaYFrase(false)
+  console.log('frase: '+frase)
+  const mensaje = new SpeechSynthesisUtterance(frase);
   mensaje.pitch = -1;
   speechSynthesis.speak(mensaje);
 }
