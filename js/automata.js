@@ -209,14 +209,32 @@ function mostrarModal(Aceptado){
 
 function mostrarResultado(Aceptado){
   if(Aceptado){
-    textModal.textContent = 'Palabra Aceptada'
+    const text1 = document.getElementById("textModal");
+    text1.style.display = "block";
+    const text2 = document.getElementById("textModal2");
+    text2.style.display = "none";
+    const frase = text1.textContent;
     aceptadoModal.classList.remove('oculto')
     aceptadoModal.classList.add('aceptada')
+    const mensaje = new SpeechSynthesisUtterance(frase);
+    mensaje.pitch = -1;
+    setTimeout(() => {
+      speechSynthesis.speak(mensaje);
+    }, 500);
     guardarEstado(true)
   }else{
-    textModal.textContent = 'Palabra no Aceptada'
+    const text1 = document.getElementById("textModal");
+    text1.style.display = "none";
+    const text2 = document.getElementById("textModal2");
+    text2.style.display = "block";
+    const frase = text2.textContent;
     noAceptadoModal.classList.remove('oculto')
     noAceptadoModal.classList.add('noAceptada')
+    const mensaje = new SpeechSynthesisUtterance(frase);
+    mensaje.pitch = -1;
+    setTimeout(() => {
+      speechSynthesis.speak(mensaje);
+    }, 500);
     guardarEstado(false)
   }
 }
@@ -246,9 +264,9 @@ function guardarPalabra(valor){
 }
 function guardarEstado(Estado){
     if(Estado){
-      Palabra.Estado='Aceptado';
+      Palabra.Estado='Aceptada';
     }else{
-      Palabra.Estado='No Aceptado';
+      Palabra.Estado='No Aceptada';
     }
     console.log(JSON.stringify(Palabra))
     enviarDatos()
@@ -277,12 +295,34 @@ function ocultarForm(){
 function mostrarDivHistorial(){
   historialContenedor.classList.remove('oculto')
   historialContenedor.classList.add('containerHistorial')
+};
+
+function obtenerDatos() {
+  fetch('http://localhost:5000/Palabras')
+    .then(response => response.json())
+    .then(data => {
+
+      const table = document.getElementById('tabla');
+      while (table.rows.length > 1) {
+        table.deleteRow(1);
+      }
+      for (let clave in data) {
+        const palabra = data[clave].palabra;
+        if (palabra && palabra.Palabra && palabra.Estado) {
+          const row = document.createElement('tr');
+          const nombreCell = document.createElement('td');
+          const estadoCell = document.createElement('td');
+  
+          nombreCell.textContent = palabra.Palabra;
+          estadoCell.textContent = palabra.Estado;
+
+          row.appendChild(nombreCell);
+          row.appendChild(estadoCell);
+
+          table.appendChild(row);
+        }
+      }
+    });
 }
 
-function obtenerDatos(){
-  fetch('http://localhost:5000/Palabras')
-  .then(response => response.json())
-  .then(data => {
-    console.log(data)
-  });
-}
+
