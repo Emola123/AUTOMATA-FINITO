@@ -8,20 +8,7 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
-    transition: all .5s ease;
 }
-/*Edición para cambiar al modo oscuro el menu*/
-.dark{
-    background-color: #2a2a2a;
-    color: white;
-    transition: all .5s ease;
-}
-.darkBody{
-    background: #3f3f3f;
-    color: white;
-    transition: all .5s ease;
-}
-
 .headerMenu{
     display: flex;
     align-items: center;
@@ -126,6 +113,7 @@
 .respuestaMenu{
     height: 60%;
     width: 100%;
+    cursor: pointer;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -164,7 +152,6 @@ form > h1{
     padding: 5px;
     border-radius: 3px;
     cursor: pointer;
-    text-align: center;
 }
 .formRango{
     height: 20px;
@@ -207,53 +194,3 @@ form > h1{
 .oculto{
     display: none;
 }
-
-.dropdown {
-	justify-content: end;
-    align-items: end;
-    width: 100px;
-}
-.dropbtn {
-	background-color: #1da0dd;
-	color: white;
-	font-size: 15px;
-	border: none;
-	cursor: pointer;
-  position: relative; /* agregar posición relativa para el icono */
-  display: inline-block;
-  white-space: nowrap;
-  transition: all .5s ease;
-}
-/* Edición para el color del botón de idioma*/
-.idiomaDark{
-    background-color: #2a2a2a;
-    transition: all .5s ease;
-}
-
-
-.dropdown-content {
-	display: none;
-	position: absolute;
-	z-index: 1;
-}
-
-.dropdown-content a {
-	color: black;
-	padding: 12px 16px;
-	text-decoration: none;
-	display: block;
-}
-
-.dropdown:hover .dropdown-content {
-	display: block;
-    background-color: white;
-}
-
-.items:hover{
-    background-color: #57c3f5;
-}
-
-.velocity-con{
-    display: flex;
-}
-

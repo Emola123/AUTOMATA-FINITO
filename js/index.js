@@ -19,3 +19,9 @@ activarForm.addEventListener('click',()=>{
     cuboIcon.classList.add('oculto')
     form.classList.remove('oculto')
 })
+
+activarHistorial.addEventListener('click',()=>{
+    cuboIcon.classList.add('oculto')
+    form.classList.add('oculto')
+})
+
