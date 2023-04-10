@@ -1,9 +1,9 @@
 title = Automate fini déterministe
 title-menu = Menu API
-langue = langue
-insertWord = Valider le mot
-histoire = Histoire
+idioma = langue
+insertarPalabra = Valider le mot
+history = Histoire
 title-form = Validation de mot
-vélocité = Vélocité :
+velocity = Vélocité :
 textLoad = Chargement...
 formSubmit = Vérifier le mot

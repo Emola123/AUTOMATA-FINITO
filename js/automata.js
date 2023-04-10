@@ -168,6 +168,7 @@ function mostrarResultado(Aceptado){
     noAceptadoModal.classList.remove('oculto')
     noAceptadoModal.classList.add('noAceptada')
     setTimeout(audioNoAceptado(),1000)
+    guardarEstado(true)
   }
 }
   
@@ -237,6 +238,20 @@ function obtenerDatos(){
   });
 }
 
+const message={
+  'Accept':{
+    'Español':'Palabra Aceptada',
+    'English':'accepted word',
+    'Français':'mot accepté',
+  },
+  'NoAccept':{
+    'Español':'Palabra No Aceptada',
+    'English':'word not accepted',
+    'Français':'mot non accepté',
+  },
+}
+
+
 function audioAceptado(){
   const mensaje = new SpeechSynthesisUtterance('Palabra Aceptada');
   mensaje.pitch = -1;
@@ -244,8 +259,6 @@ function audioAceptado(){
 }
 
 function audioNoAceptado(){
-  const voces = speechSynthesis.getVoices();
-  // Buscar una voz masculina en la lista de voces
   const mensaje = new SpeechSynthesisUtterance('Palabra No Aceptada');
   mensaje.pitch = -1;
   speechSynthesis.speak(mensaje);
