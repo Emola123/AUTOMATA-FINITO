@@ -57,7 +57,7 @@ function loadTranslation(lang) {
     })
     .catch(error => console.error(error));
 }
-  
+
 
 
 function highlightLanguage(item) {

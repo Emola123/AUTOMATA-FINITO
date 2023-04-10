@@ -1,0 +1,9 @@
+title = Automate fini déterministe
+title-menu = Menu API
+langue = langue
+insertWord = Valider le mot
+histoire = Histoire
+title-form = Validation de mot
+vélocité = Vélocité :
+textLoad = Chargement...
+formSubmit = Vérifier le mot
