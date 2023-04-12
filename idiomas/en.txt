@@ -1,4 +1,4 @@
-title = Deterministic Finite Automata
+title = Finite Automata
 title-menu = Automata Menu
 idioma = Language
 insertarPalabra = Validate Word

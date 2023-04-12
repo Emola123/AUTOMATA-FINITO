@@ -51,7 +51,10 @@ window.onload = function init() {
     
     
     diagram = $(go.Diagram, "myDiagramDiv", {
-    "undoManager.isEnabled": true
+    "undoManager.isEnabled": true,
+    allowMove: false,
+    allowHorizontalScroll: false,
+    allowVerticalScroll: false
     });
     
     // Definir los nodos y las conexiones
@@ -273,9 +276,9 @@ function guardarEstado(Estado){
 }
 
 function enviarDatos(){
-  fetch('http://localhost:5000/ruta_de_flask', {
+  fetch('https://desingkuro.pythonanywhere.com/Palabras_recibidas', {
     method: 'POST',
-    body: JSON.stringify({palabra: Palabra}),
+    body: JSON.stringify(Palabra),
     headers: {'Content-Type': 'application/json'}
   })
   .then(response => response.text())
@@ -300,31 +303,69 @@ function mostrarDivHistorial(){
 };
 
 function obtenerDatos() {
-  fetch('http://localhost:5000/Palabras')
+  let table = document.getElementById("tabla-datos");
+  let rowCount = table.rows.length;
+  for (var i = rowCount - 1; i > 0; i--) {
+      table.deleteRow(i);
+  }
+
+  const diccionario = {
+    "Aceptada": {
+      "es": "Aceptada",
+      "en": "Accepted",
+      "fr": "Accepté"
+    },
+    "No Aceptada": {
+      "es": "No Aceptada",
+      "en": "Not Accepted",
+      "fr": "Non accepté"
+    }
+  };
+  
+  fetch('https://desingkuro.pythonanywhere.com/Palabras')
     .then(response => response.json())
     .then(data => {
-
-      const table = document.getElementById('tabla');
-      while (table.rows.length > 1) {
-        table.deleteRow(1);
-      }
-      for (let clave in data) {
-        const palabra = data[clave].palabra;
-        if (palabra && palabra.Palabra && palabra.Estado) {
-          const row = document.createElement('tr');
-          const nombreCell = document.createElement('td');
-          const estadoCell = document.createElement('td');
-  
-          nombreCell.textContent = palabra.Palabra;
-          estadoCell.textContent = palabra.Estado;
-
-          row.appendChild(nombreCell);
-          row.appendChild(estadoCell);
-
-          table.appendChild(row);
-        }
-      }
+        console.log(data);
+        const tabla = document.getElementById("tabla-datos");
+        let contadorColumna = 0;
+        let idiomaDestino = "es"; // valor predeterminado
+        // Agregar controlador de eventos a los enlaces de idioma
+        document.querySelectorAll(".dropdown-content a").forEach((enlace) => {
+            enlace.addEventListener("click", (event) => {
+                event.preventDefault();
+                idiomaDestino = enlace.getAttribute("data-lang");
+                // Actualizar la tabla con los nuevos datos traducidos
+                actualizarTabla(data, tabla, idiomaDestino);
+            });
+        });
+        // Construir la tabla inicialmente
+        actualizarTabla(data, tabla, idiomaDestino);
     });
+
+function actualizarTabla(data, tabla, idiomaDestino) {
+  const rowCount = tabla.rows.length;
+  for (let i = rowCount - 1; i > 0; i--) {
+    tabla.deleteRow(i);
+  }
+    // Iterar sobre el array de datos y agregar cada fila a la tabla
+    data.forEach((fila) => {
+        const nuevaFila = tabla.insertRow();
+        fila.forEach((palabra, index) => {
+            const nuevaCelda = nuevaFila.insertCell();
+            let nuevoTexto;
+            if (index === 2) {
+                const traduccion = diccionario[palabra][idiomaDestino];
+                nuevoTexto = document.createTextNode(traduccion || palabra);
+            } else {
+                nuevoTexto = document.createTextNode(palabra);
+            }
+            nuevaCelda.appendChild(nuevoTexto);
+        });
+    });
+}
+
+
+  
 }
 
 

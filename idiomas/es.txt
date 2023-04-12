@@ -1,4 +1,4 @@
-title = Autómata Finito Determinista
+title = Autómata Finito
 title-menu = Menú Autómata
 idioma = Idioma
 insertarPalabra = Validar Palabra

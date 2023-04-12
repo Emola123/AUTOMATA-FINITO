@@ -1,0 +1,13 @@
+title = Automate fini
+title-menu = menu automate
+idioma = langue
+insertarPalabra = Valider le mot
+history = Histoire
+title-form = Validation de mot
+velocity = Vélocité :
+words = Mots
+state = État
+textLoad = Chargement...
+formSubmit = Vérifier le mot
+textModal = Mot accepté
+textModal2 = Mot rejeté
